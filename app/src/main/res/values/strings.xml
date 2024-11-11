@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Music Player</string>
+    <string name="shuffle_btn">Shuffle</string>
+    <string name="favourites_btn">Favourites</string>
+    <string name="playlist_btn">Playlist</string>
+    <string name="total_song">Total Song</string>
+    <string name="world_of_music">World of Music</string>
+    <string name="song_name">Song Name</string>
+    <string name="back_btn">back_btn</string>
+    <string name="text">text</string>
+    <string name="empty_favorite_btn">empty_favorite_btn</string>
+    <string name="_00_00">00:00</string>
+    <string name="loading">loading...</string>
+    <string name="repeat_btn">repeat_btn</string>
+    <string name="eq_btn">eq_btn</string>
+    <string name="timer_btn">timer_btn</string>
+    <string name="share_btn">share_btn</string>
+    <string name="favourites">Favourites</string>
 </resources>

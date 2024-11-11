@@ -7,13 +7,72 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="232dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/shuffle_btn"
+                android:drawableTop="@drawable/suffle"
+                android:fontFamily="@font/poppins"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/shuffle_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/favourites_btn"
+                android:drawableTop="@drawable/favorite"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/favourites_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@string/playlist_btn"
+                android:drawableTop="@drawable/musiclibrary"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/playlist_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_song"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/_10dp"
+            android:fontFamily="@font/poppins"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

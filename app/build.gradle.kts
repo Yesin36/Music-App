@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.gogote.musicplayer"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.gogote.musicplayer"
