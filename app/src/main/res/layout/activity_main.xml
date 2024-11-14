@@ -66,6 +66,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/totalSong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/total_song"
@@ -74,6 +75,7 @@
             android:fontFamily="@font/poppins"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>

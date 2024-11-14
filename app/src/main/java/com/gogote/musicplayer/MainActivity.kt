@@ -11,18 +11,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.gogote.musicplayer.databinding.ActivityMainBinding
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var musicAdapter: MusicAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         requestRuntimePermission()
         setTheme(R.style.Theme_MusicPlayer)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -30,6 +36,19 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val musicList = ArrayList<String>()
+        musicList.add("Song1")
+        musicList.add("Song1")
+        musicList.add("Song1")
+        musicList.add("Song1")
+        musicList.add("Song1")
+
+        binding.MRecyclerView.setHasFixedSize(true)
+        binding.MRecyclerView.setItemViewCacheSize(13)
+        binding.MRecyclerView.layoutManager = LinearLayoutManager(this)
+        musicAdapter = MusicAdapter(this, musicList)
+        binding.MRecyclerView.adapter = musicAdapter // Set the adapter only once
+        binding.totalSong.text = "Total Songs : "+musicAdapter.itemCount
 
         // for nev drawer
         toggle = ActionBarDrawerToggle(this, binding.root, R.string.open, R.string.close)
