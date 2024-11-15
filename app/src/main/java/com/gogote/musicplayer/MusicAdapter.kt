@@ -1,17 +1,22 @@
 package com.gogote.musicplayer
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.gogote.musicplayer.databinding.MusicViewBinding
 
-class MusicAdapter(private val context: Context, private val musicList: ArrayList<String>): RecyclerView.Adapter<MusicAdapter.MyHolder>() {
+class MusicAdapter(private val context: Context, private val musicList: ArrayList<Music>): RecyclerView.Adapter<MusicAdapter.MyHolder>() {
     class MyHolder(binding: MusicViewBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.songName
         val album = binding.songAlbum
         val duration = binding.songDuration
         val image = binding.imageMv
+        val root = binding.root
 
     }
 
@@ -20,10 +25,22 @@ class MusicAdapter(private val context: Context, private val musicList: ArrayLis
     }
 
     override fun onBindViewHolder(holder: MusicAdapter.MyHolder, position: Int) {
-        holder.title.text = musicList[position]
+        holder.title.text = musicList[position].title
+        holder.album.text = musicList[position].album
+        holder.duration.text = formatDuration(musicList[position].duration)
+        Glide.with(context)
+            .load(musicList[position].artUri)
+            .apply(RequestOptions().placeholder(R.drawable.group).centerCrop())
+            .into(holder.image) // Replace 'imageView' with the actual ImageView in your holder
 
-
+        holder.root.setOnClickListener{
+            val intent = Intent(context,PlayerActivity::class.java)
+//            intent.putExtra("index",position)
+//            intent.putExtra("class","MusicAdapter")
+            ContextCompat.startActivity(context,intent,null)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return musicList.size
