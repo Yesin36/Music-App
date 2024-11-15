@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity() {
         // Set click listeners for buttons (e.g., Shuffle, Favourites, Playlist)
         binding.shufflebtn.setOnClickListener {
             val intent = Intent(this, PlayerActivity::class.java)
+            intent.putExtra("index", 0)
+            intent.putExtra("class", "MainActivity")
             startActivity(intent)
         }
         binding.favouritesbtn.setOnClickListener {
